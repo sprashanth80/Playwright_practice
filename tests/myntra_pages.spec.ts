@@ -1,0 +1,21 @@
+import { Utils } from "../pages/utils";
+import { test, chromium } from "@playwright/test";
+import { Myntra_products } from "../pages/myntra_products";
+import { Myntra_product_detailpage } from "../pages/myntra_product_detailpage";
+test('Title: Myntra Context Test', async ({ page }) => {
+    const browser = await chromium.launch();
+    const context = await browser.newContext();
+    const page1 = await context.newPage();
+    const utils = new Utils(page1);
+    const myntra_products = new Myntra_products(page1);
+    await utils.navigateToUrl("https://www.myntra.com/men-tshirts");
+    const page2 = await myntra_products.openProduct(0);
+    const page3 = await myntra_products.openProduct(1);
+    const product_detail_page1 = new Myntra_product_detailpage(page2);
+    const product_detail_page2 = new Myntra_product_detailpage(page3);
+    await product_detail_page1.selectSizeAndAddToBag('S');
+    await product_detail_page2.selectSizeAndAddToBag('M');
+    await page2.close();
+    await page3.close();
+    await page1.pause();
+});
