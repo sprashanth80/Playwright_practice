@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-test('get: api test', async ({request}) => {
+test('@get @smoke get: api test', async ({request}) => {
     const response = await request.get('https://jsonplaceholder.typicode.com/todos/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -10,7 +10,7 @@ test('get: api test', async ({request}) => {
     expect(responseBody.completed).toBe(false);
 });
 
-test('delete: api test', async ({request}) => {
+test('@delete delete: api test', async ({request}) => {
     const response = await request.delete('https://jsonplaceholder.typicode.com/todos/1');
     expect(response.status()).toBe(200);
     const responseBody = await response.json();
@@ -27,6 +27,7 @@ test('post: api test', async ({request}) => {
   "status": "placed",
   "complete": true
 }
+
     const response = await request.post('https://petstore.swagger.io/v2/store/order', {
         data: requestBody
     });
