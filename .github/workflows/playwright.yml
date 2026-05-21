@@ -26,7 +26,30 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-        run: npx playwright test ${{ github.event.inputs.testFile }} --grep ${{ github.event.inputs.grepTag }} --reporter=html
+        run: |
+         TEST_FILE="${{ github.event.inputs.testFile }}"
+         GREP_TAG="${{ github.event.inputs.grepTag }}"
+
+         if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+
+           if [ -n "$TEST_FILE" ]; then
+             echo "Running file: $TEST_FILE"
+             npx playwright test "$TEST_FILE"
+
+           elif [ -n "$GREP_TAG" ]; then
+             echo "Running grep tag: $GREP_TAG"
+             npx playwright test --grep "$GREP_TAG"
+
+           else
+             echo "Running all tests"
+             npx playwright test
+           fi
+
+         else
+           echo "Scheduled execution"
+           npx playwright test tests/login.spec.ts --grep "@smoke"
+         fi
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
