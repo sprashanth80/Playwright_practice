@@ -1,0 +1,11 @@
+Step 1: Opening amazon.in
+Step 2: Searching for product
+Step 3: Selecting first product from results
+Step 4: Adding product to cart
+Step 5: Going to cart
+Step 6: Attempting checkout
+Found checkout button, clicking...
+Step 7: Capturing final state
+Current page URL: https://www.amazon.in/ap/signin?openid.pape.max_auth_age=900&openid.return_to=https%3A%2F%2Fwww.amazon.in%2Fcheckout%2Fentry%2Fcart%3FisEligibilityLogicDisabled%3D1%26referrer%3Dcart%26proceedToCheckout%3D1%26proceedToCheckout%3D1%26ref_%3Dox_sc_proceed%26oldCustomerId%3D0%26tangoWeblabStatus%3Dtango_enable_unrec_customer%26sessionID%3D521-5475709-9569032%26pipelineType%3DChewbacca%26isToBeGiftWrappedBefore%3D0%26useDefaultCart%3D1%26isUnrec%3D1&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amazon_checkout_in&openid.mode=checkid_setup&language=en_IN&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0
+✅ Test flow completed - check screenshots for journey
+Step 8: Closing browser

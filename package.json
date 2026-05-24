@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "report": "playwright show-report --host=127.0.0.1 --port=9324"
+    "report": "playwright show-report --host=127.0.0.1 --port=9324",
+    "mcp:filesystem": "npx -y @modelcontextprotocol/server-filesystem .",
+    "mcp:playwright": "npx -y @playwright/mcp@latest"
   },
   "keywords": [],
   "author": "",
